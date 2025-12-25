@@ -1,72 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Aaron Kuang</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background: #f5f5f5;
-            color: #333;
-        }
-        header {
-            background: #222;
-            color: white;
-            padding: 40px;
-            text-align: center;
-        }
-        section {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-        .bio {
-            text-align: center;
-            font-size: 18px;
-        }
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin-top: 30px;
-        }
-        .gallery img {
-            width: 100%;
-            border-radius: 10px;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            font-size: 14px;
-            color: #777;
-        }
-    </style>
+<meta charset="UTF-8">
+<title>Aaron Kuang</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f5f5f5;
+    color: #333;
+}
+
+header {
+    background: #222;
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+section {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.bio {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+/* Category buttons */
+.categories {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.categories button {
+    background: #eee;
+    border: none;
+    padding: 10px 18px;
+    margin: 5px;
+    font-size: 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.categories button:hover,
+.categories button.active {
+    background: #222;
+    color: white;
+}
+
+/* Photo gallery */
+.gallery {
+    display: none;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.gallery.active {
+    display: grid;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    font-size: 14px;
+    color: #777;
+}
+</style>
 </head>
+
 <body>
 
 <header>
     <h1>Aaron Kuang</h1>
-    <p>Greenhill School | Student | 26</p>
+    <p>Photography • Sports • Moments</p>
 </header>
 
 <section>
     <div class="bio">
         <p>
-            Hi! I’m Your Name. I enjoy photography, capturing moments,
-            and telling stories through images. This website is a small
-            collection of my favorite work.
+            Hi! I’m Aaron. I enjoy capturing moments through photography,
+            from sports and action to everyday life and travel.
         </p>
     </div>
 
-    <div class="gallery">
-        <img src="Cello_GreenhillFacebook.JPEG" alt="Cello Performance on Greenhill Facebook Page">
+    <!-- CATEGORY BUTTONS -->
+    <div class="categories">
+        <button class="active" onclick="showGallery('portraits')">Portraits</button>
+        <button onclick="showGallery('basketball')">Basketball</button>
+        <button onclick="showGallery('fencing')">Fencing</button>
+        <button onclick="showGallery('travel')">Travel</button>
+    </div>
+
+    <!-- GALLERIES -->
+    <div id="portraits" class="gallery active">
+        <img src="Cello_GreenhillFacebook.jpg">
+        <img src="portraits2.jpg">
+        <img src="portraits3.jpg">
+    </div>
+
+    <div id="basketball" class="gallery">
+        <img src="basketball1.jpg">
+        <img src="basketball2.jpg">
+        <img src="basketball3.jpg">
+    </div>
+
+    <div id="fencing" class="gallery">
+        <img src="fencing1.jpg">
+        <img src="fencing2.jpg">
+        <img src="fencing3.jpg">
+    </div>
+
+    <div id="travel" class="gallery">
+        <img src="travel1.jpg">
+        <img src="travel2.jpg">
+        <img src="travel3.jpg">
     </div>
 </section>
 
 <footer>
-    © 2025
+    © 2025 Aaron Kuang
 </footer>
+
+<script>
+function showGallery(id) {
+    document.querySelectorAll('.gallery').forEach(g => g.classList.remove('active'));
+    document.querySelectorAll('.categories button').forEach(b => b.classList.remove('active'));
+
+    document.getElementById(id).classList.add('active');
+    event.target.classList.add('active');
+}
+</script>
 
 </body>
 </html>
