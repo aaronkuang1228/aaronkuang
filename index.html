@@ -158,16 +158,11 @@ footer {
 </header>
 
 <section>
-    <div class="bio">
-        <p>
-            Hi! I’m Aaron. I enjoy capturing moments through photography,
-            from sports and action to everyday life and travel.
-        </p>
-    </div>
 
     <!-- CATEGORY BUTTONS -->
     <div class="categories">
-        <button class="active" onclick="showGallery('debate')">Debate</button>
+        <button class="active" onclick="showGallery('about')">About Aaron</button>
+        <button onclick="showGallery('debate')">Debate</button>
         <button onclick="showGallery('cello')">Cello</button>
         <button onclick="showGallery('math')">Math</button>
         <button onclick="showGallery('fencing')">Fencing</button>
@@ -177,7 +172,13 @@ footer {
     </div>
 
     <!-- GALLERIES -->
-    <div id="debate" class="gallery active">
+    <div id="about" class="gallery active bio">
+        <p>
+            Hi! I’m Aaron. I enjoy capturing moments through photography,
+            from sports and action to everyday life and travel.
+        </p>
+    </div>
+    <div id="debate" class="gallery">
         <figure>
             <img src="Cello_GreenhillFacebook.JPEG" alt="Portrait 1">
             <figcaption>Quiet moment</figcaption>
