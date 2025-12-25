@@ -197,6 +197,33 @@ section {
     color: #bbb;
 }
 
+/* Navigation arrows */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 40px;
+    user-select: none;
+    transition: 0.3s;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.prev:hover, .next:hover {
+    color: #bbb;
+}
+
 /* ---- FOOTER ---- */
 footer {
     text-align: center;
@@ -383,23 +410,53 @@ function showGallery(id) {
     event.target.classList.add('active');
 }
 
+let currentGallery = [];
+let currentIndex = 0;
+
 function openLightbox(img) {
+    // Get all images in the same category/gallery
+    const galleryDiv = img.closest('.gallery');
+    currentGallery = Array.from(galleryDiv.querySelectorAll('img'));
+    currentIndex = currentGallery.indexOf(img);
+
+    showLightboxImage(currentIndex);
     document.getElementById('lightbox').style.display = 'block';
-    document.getElementById('lightbox-img').src = img.src;
-    document.getElementById('lightbox-caption').innerText = img.alt || img.nextElementSibling.innerText;
+}
+
+function showLightboxImage(index) {
+    const img = currentGallery[index];
+    const lightboxImg = document.getElementById('lightbox-img');
+    const caption = document.getElementById('lightbox-caption');
+
+    lightboxImg.src = img.src;
+    caption.innerText = img.alt || img.nextElementSibling.innerText;
+}
+
+function changeLightbox(step) {
+    if(currentGallery.length === 0) return;
+    currentIndex += step;
+    if(currentIndex < 0) currentIndex = currentGallery.length - 1;
+    if(currentIndex >= currentGallery.length) currentIndex = 0;
+    showLightboxImage(currentIndex);
 }
 
 function closeLightbox() {
     document.getElementById('lightbox').style.display = 'none';
 }
 
+
 </script>
 
-<div id="lightbox" onclick="closeLightbox()">
-    <span class="close">&times;</span>
+<div id="lightbox">
+    <span class="close" onclick="closeLightbox()">&times;</span>
     <img class="lightbox-content" id="lightbox-img">
     <div id="lightbox-caption"></div>
+
+    <!-- Navigation -->
+    <a class="prev" onclick="changeLightbox(-1)">&#10094;</a>
+    <a class="next" onclick="changeLightbox(1)">&#10095;</a>
 </div>
+
 
 
 </body>
