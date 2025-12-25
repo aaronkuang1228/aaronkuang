@@ -109,11 +109,35 @@ section {
     color: #555;
     font-style: italic;
 }
-
-
+    
 .gallery img:hover {
     transform: scale(1.03);
 }
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.video-item {
+    text-align: center;
+}
+
+.video-item iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+    border: none;
+}
+
+.video-caption {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #555;
+    font-style: italic;
+}
+
 
 /* ---- FOOTER ---- */
 footer {
@@ -149,6 +173,7 @@ footer {
         <button onclick="showGallery('fencing')">Fencing</button>
         <button onclick="showGallery('charity')">Charity</button>
         <button onclick="showGallery('leadership')">Leadership</button>
+        <button onclick="showGallery('videos')">Videos</button>
     </div>
 
     <!-- GALLERIES -->
@@ -239,6 +264,25 @@ footer {
             <figcaption>Quiet moment</figcaption>
         </figure>
     </div>
+    <div id="videos" class="gallery">
+        <div class="video-grid">
+            <div class="video-item">
+                <iframe
+                    src="https://youtu.be/m3GhbSGZzWw?si=2XD59LMmYKv1qLcR" title="Polonaise De Concert Op. 14" allowfullscreen>
+                </iframe>
+                <p class="video-caption">Polonaise De Concert Op. 14</p>
+            </div>
+        </div>
+        <div class="video-grid">
+            <div class="video-item">
+                <iframe
+                    src="https://youtu.be/VqoWsJoyau4?si=VMBUfbGqiM2eKIT-" title="Cello Concerto In E Minor Op. 85" allowfullscreen>
+                </iframe>
+                <p class="video-caption">Cello Concerto In E Minor Op. 85</p>
+            </div>
+        </div>
+    </div>
+
 </section>
 
 <footer>
