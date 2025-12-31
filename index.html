@@ -229,6 +229,26 @@ section {
     color: #bbb;
 }
 
+    /* ---- ABOUT PAGE LAYOUT FIX ---- */
+#about {
+    display: flex;
+    flex-direction: column;   /* stack vertically */
+    align-items: center;
+    gap: 30px;
+}
+
+/* Keep text readable */
+#about > div:first-child {
+    max-width: 900px;
+}
+
+/* Resume PDF sizing */
+#about .pdf-item {
+    width: 100%;
+    max-width: 900px;
+    margin-top: 10px;
+}
+
 /* ---- FOOTER ---- */
 footer {
     text-align: center;
