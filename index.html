@@ -230,23 +230,25 @@ section {
 }
 
     /* ---- ABOUT PAGE LAYOUT FIX ---- */
-#about {
+/* ---- ABOUT PAGE FIX ---- */
+#about.gallery {
+    display: none;
+}
+
+#about.gallery.active {
     display: flex;
-    flex-direction: column;   /* stack vertically */
+    flex-direction: column;
     align-items: center;
     gap: 30px;
 }
 
-/* Keep text readable */
 #about > div:first-child {
     max-width: 900px;
 }
 
-/* Resume PDF sizing */
 #about .pdf-item {
     width: 100%;
     max-width: 900px;
-    margin-top: 10px;
 }
 
 /* ---- FOOTER ---- */
@@ -283,7 +285,7 @@ footer {
     </div>
 
     <!-- GALLERIES -->
-    <div id="about" class="gallery active bio">
+    <div id="about" class="gallery active">
         <div>
             <p>
                 Aaron Kuang is a high-achieving high school junior at Greenhill School with a strong interdisciplinary focus spanning mathematics, debate, computer science, and music. A National Merit Semifinalist with a 1560 SAT, Aaron has excelled in advanced coursework including BC Calculus, Linear Algebra, and Physics C. He is a nationally ranked Lincoln-Douglas debater, earning nine Tournament of Champions bids and semifinal finishes at major national tournaments across the country.
