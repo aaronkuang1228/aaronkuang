@@ -271,15 +271,15 @@ footer {
 
     <!-- CATEGORY BUTTONS -->
     <div class="categories">
-        <button class="active" onclick="showGallery('about')">About Aaron</button>
-        <button onclick="showGallery('debate')">Debate</button>
-        <button onclick="showGallery('cello')">Cello</button>
-        <button onclick="showGallery('math')">Math</button>
-        <button onclick="showGallery('fencing')">Fencing</button>
-        <button onclick="showGallery('charity')">Charity</button>
-        <button onclick="showGallery('leadership')">Leadership</button>
-        <button onclick="showGallery('publication')">Publication</button>
-        <button onclick="showGallery('videos')">Videos</button>
+        <button class="active" onclick="showGallery('about', this)">About Aaron</button>
+        <button onclick="showGallery('debate', this)">Debate</button>
+        <button onclick="showGallery('cello', this)">Cello</button>
+        <button onclick="showGallery('math', this)">Math</button>
+        <button onclick="showGallery('fencing', this)">Fencing</button>
+        <button onclick="showGallery('charity', this)">Charity</button>
+        <button onclick="showGallery('leadership', this)">Leadership</button>
+        <button onclick="showGallery('publication', this)">Publication</button>
+        <button onclick="showGallery('videos', this)">Videos</button>
     </div>
 
     <!-- GALLERIES -->
@@ -454,12 +454,12 @@ footer {
 </footer>
 
 <script>
-function showGallery(id) {
+function showGallery(id, btn) {
     document.querySelectorAll('.gallery').forEach(g => g.classList.remove('active'));
     document.querySelectorAll('.categories button').forEach(b => b.classList.remove('active'));
 
     document.getElementById(id).classList.add('active');
-    event.target.classList.add('active');
+    if (btn) btn.classList.add('active');
 }
 
 let currentGallery = [];
