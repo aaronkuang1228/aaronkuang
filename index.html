@@ -160,6 +160,18 @@ section {
     flex-direction: column;
     gap: 20px; /* optional spacing between rows */
 }
+
+.publication-images {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap; /* allows stacking on small screens */
+}
+
+.publication-images figure {
+    flex: 1;
+    max-width: 450px;
+}
     
 /* Lightbox overlay */
 #lightbox {
@@ -600,7 +612,7 @@ footer {
     </div>
     
     <div id="publication" class="gallery">
-        <div>
+        <div class="publication-images">
             <figure>
                 <img src="IJHSR-Certificate.png" alt="IJHSR Publication Certificate" onclick="openLightbox(this)">
                 <figcaption>IJHSR Publication Certificate</figcaption>
